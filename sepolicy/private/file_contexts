@@ -7,3 +7,5 @@
 /op1(/.*)?               u:object_r:op1_file:s0
 /op2(/.*)?               u:object_r:op2_file:s0
 
+# tri-state-key
+/system/bin/tri-state-key_daemon          u:object_r:tri-state-key_daemon_exec:s0

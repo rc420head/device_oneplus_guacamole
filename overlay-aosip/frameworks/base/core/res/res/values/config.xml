@@ -18,6 +18,7 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <!-- FOD fingerprint scanner -->
     <bool name="config_needCustomFODView">true</bool>
     <bool name="config_usesOnePlusFOD">true</bool>

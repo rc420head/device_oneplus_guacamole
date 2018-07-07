@@ -118,6 +118,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	textclassifier.bundle1
 
+# tri-state-key
+PRODUCT_PACKAGES += \
+    tri-state-key_daemon
+
 # Trust HAL
 PRODUCT_PACKAGES += \
 	vendor.lineage.trust@1.0-service
