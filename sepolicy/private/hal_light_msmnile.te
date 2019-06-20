@@ -1,0 +1,13 @@
+type hal_light_msmnile, coredomain, domain;
+
+typeattribute hal_light_msmnile halserverdomain;
+typeattribute hal_light_msmnile hal_light_server;
+
+binder_call(hal_light_client, hal_light_server)
+binder_call(hal_light_server, hal_light_client)
+
+add_hwservice(hal_light_server, hal_light_hwservice)
+allow hal_light_client hal_light_hwservice:hwservice_manager find;
+
+type hal_light_msmnile_exec, exec_type, file_type;
+init_daemon_domain(hal_light_msmnile)
