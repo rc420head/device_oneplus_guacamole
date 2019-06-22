@@ -54,6 +54,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+	BluetoothResCommon
+
 # Boot control
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 	bootctrl.msmnile \
