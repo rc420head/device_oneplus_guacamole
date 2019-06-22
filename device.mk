@@ -15,7 +15,28 @@ $(call inherit-product-if-exists, vendor/oneplus/guacamole/guacamole-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
 	$(LOCAL_PATH)/overlay \
-	$(LOCAL_PATH)/overlay-aosip \
+	$(LOCAL_PATH)/overlay-aosip
+
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+	boot \
+	dtbo \
+	system \
+	vbmeta
+
+AB_OTA_POSTINSTALL_CONFIG += \
+	RUN_POSTINSTALL_system=true \
+	POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+	FILESYSTEM_TYPE_system=ext4 \
+	POSTINSTALL_OPTIONAL_system=true
+
+PRODUCT_PACKAGES += \
+	otapreopt_script \
+	brillo_update_payload \
+	update_engine \
+	update_engine_sideload \
+	update_verifier
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -33,11 +54,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
 
+# Boot control
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+	bootctrl.msmnile \
+	libcutils \
+	libgptutils \
+	libz
+
 # Camera
 PRODUCT_PACKAGES += \
 	Snap \
 	vendor.lineage.camera.motor@1.0 \
-	vendor.lineage.camera.motor@1.0-service.oneplus_msmnile \
+	vendor.lineage.camera.motor@1.0-service.oneplus_msmnile
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -69,7 +97,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/fpc1020.kl:system/usr/keylayout/fpc1020.kl \
 	$(LOCAL_PATH)/keylayout/gf_input.kl:system/usr/keylayout/gf_input.kl \
-	$(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+	$(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -128,34 +156,6 @@ PRODUCT_PACKAGES += \
 	vndk_package
 
 # Wifi Display: TBD
-
-AB_OTA_UPDATER := true
-
-AB_OTA_PARTITIONS += \
-	boot \
-	dtbo \
-	system \
-	vbmeta \
-
-AB_OTA_POSTINSTALL_CONFIG += \
-	RUN_POSTINSTALL_system=true \
-	POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-	FILESYSTEM_TYPE_system=ext4 \
-	POSTINSTALL_OPTIONAL_system=true
-
-PRODUCT_PACKAGES += \
-	otapreopt_script \
-	brillo_update_payload \
-	update_engine \
-	update_engine_sideload \
-	update_verifier
-
-# Boot control
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-	bootctrl.msmnile \
-	libcutils \
-	libgptutils \
-	libz \
 
 # Sensors
 PRODUCT_PACKAGES += \
