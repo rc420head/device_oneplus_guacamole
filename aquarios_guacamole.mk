@@ -5,10 +5,10 @@
 #
 
 $(call inherit-product, device/oneplus/guacamole/device.mk)
-$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
+$(call inherit-product, vendor/aquarios/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosip_guacamole
+PRODUCT_NAME := aquarios_guacamole
 PRODUCT_DEVICE := guacamole
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := OnePlus 7 Pro
