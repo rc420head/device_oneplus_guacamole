@@ -15,7 +15,7 @@ $(call inherit-product-if-exists, vendor/oneplus/guacamole/guacamole-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
 	$(LOCAL_PATH)/overlay \
-	$(LOCAL_PATH)/overlay-aosip
+	$(LOCAL_PATH)/overlay-aquarios
 
 AB_OTA_UPDATER := true
 
